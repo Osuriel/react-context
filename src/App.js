@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+// 1. Create the context.
+// 2. Context have a provider.
+    // Wrap the components that you want to allow access
+    // the context data inside the provider
+
+// 3. Pass the values you want to share in the context, as the value
+    // prop to the context provider
+
+// 4. Actually use the data from context somewhere.
+    // Use the  "useContext" hook for this
+
 import './App.css';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import UserContexProvider from './context/userContext';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return ( 
+    <UserContexProvider randomProp='randomData'>
+      <div className="App" style={{ boxSizing: 'border-box' }}>
+        <Header />
+        <Footer />
+      </div>
+    </UserContexProvider>
   );
 }
 
